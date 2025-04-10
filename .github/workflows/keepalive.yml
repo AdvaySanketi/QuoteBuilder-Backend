@@ -1,0 +1,12 @@
+name: Keep Alive
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  ping-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Backend
+        run: |
+          curl -s -o /dev/null -w "HTTP Status: %{http_code}\n" https://quotebuilder-backend.onrender.com/health

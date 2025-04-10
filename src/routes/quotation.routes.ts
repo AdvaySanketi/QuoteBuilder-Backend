@@ -6,6 +6,7 @@ import {
   updateQuotation,
   deleteQuotation,
   changeQuotationStatus,
+  generatePDF,
 } from "../controllers/quotation.controller";
 import { validateQuotation } from "../validators/quotation.validator";
 import { authenticate } from "../middleware/auth.middleware";
@@ -15,6 +16,7 @@ const router = Router();
 router.use(authenticate);
 
 router.get("/", getAllQuotations);
+router.post("/pdf", generatePDF);
 router.get("/:id", getQuotationById);
 router.post("/", validateQuotation, createQuotation);
 router.put("/:id", updateQuotation);
