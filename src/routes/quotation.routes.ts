@@ -7,6 +7,7 @@ import {
   deleteQuotation,
   changeQuotationStatus,
   generatePDF,
+  getConversionRateWithMetadata,
 } from "../controllers/quotation.controller";
 import { validateQuotation } from "../validators/quotation.validator";
 import { authenticate } from "../middleware/auth.middleware";
@@ -22,5 +23,6 @@ router.post("/", validateQuotation, createQuotation);
 router.put("/:id", updateQuotation);
 router.delete("/:id", deleteQuotation);
 router.patch("/:id/status", changeQuotationStatus);
+router.get("/convrate", getConversionRateWithMetadata);
 
 export default router;

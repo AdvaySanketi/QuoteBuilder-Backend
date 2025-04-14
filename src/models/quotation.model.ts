@@ -33,6 +33,14 @@ export interface IQuotation extends Document {
   updatedAt: Date;
 }
 
+export interface ConversionResponse {
+  result: string;
+  base_code: string;
+  target_code: string;
+  conversion_rate: number;
+  conversion_result: number;
+}
+
 const PriceQuantitySchema = new Schema<PriceQuantity>(
   {
     quantity: { type: Number, required: true },
